@@ -15,9 +15,16 @@ klasörüm = f"C:\\Users\\...\\Desktop\\Yeni klasör"
 pd = pydate.PyDate(path=klasörüm,rawlink=raw_link)
 
 if pd.create_version_file(0.1):
-    print("Güncelleme dosyası oluşturuldu versiyon 0.1 olarak ayarlandı")
+    print("oluşturuldu")
 else:
-    print("Güncelleme dosyası zaten var")
+    print("zaten vardı")
+
+if pd.isUpdate:
+    print("güncel")
+else:
+    print("güncel değil")
+    pd.downloadLink(url="https://raw.githubusercontent.com/Flowzzy-FF/Flowzzy/main/instalockBot.py",extension="..py")
+    pd.writeNewVersion()
 
 init(autoreset=True)
 fr = Fore.RED
